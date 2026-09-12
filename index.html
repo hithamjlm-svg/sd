@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="بوابة تسجيل الطلاب في معهد تدريب مهني الغور الأوسط التابع لمؤسسة التدريب المهني الأردنية.">
+  <meta name="theme-color" content="#a10f14">
+  <title>بوابة تسجيل الطلاب | معهد تدريب مهني الغور الأوسط</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #bd1118;
+      --red-dark: #8f0a10;
+      --navy: #062b67;
+      --navy-deep: #061a3d;
+      --gold: #d79b24;
+      --ink: #172033;
+      --muted: #5f6b7e;
+      --line: #dce3ed;
+      --paper: #ffffff;
+      --soft: #f5f7fb;
+      --green: #16803e;
+      --pink: #bd3d82;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 94px; }
+    body {
+      margin: 0;
+      font-family: "Tajawal", Tahoma, Arial, sans-serif;
+      color: var(--ink);
+      background: #f3f6fa;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1160px, calc(100% - 32px)); margin-inline: auto; }
+
+    /* Official strip and navigation */
+    .official-strip { background: var(--navy-deep); color: #dbe7fc; font-size: .76rem; }
+    .official-strip .container { min-height: 33px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .official-copy, .quick-contact { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; }
+    .official-copy strong { color: #fff; }
+    .official-copy .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+    .quick-contact a { display: inline-flex; direction: ltr; gap: 5px; align-items: center; font-family: Arial, sans-serif; }
+    .quick-contact .whatsapp { color: #63dc9a; }
+
+    header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); box-shadow: 0 2px 18px rgba(8,30,68,.06); }
+    .header-main { min-height: 65px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 11px; min-width: 295px; }
+    .logo-50 { display: flex; align-items: flex-end; gap: 2px; color: #b47c13; font-weight: 900; line-height: 1; }
+    .logo-50 b { font-family: Georgia, serif; font-size: 2.15rem; letter-spacing: -3px; background: linear-gradient(140deg,#8f691c,#e5bb4c,#9b6814); -webkit-background-clip: text; color: transparent; }
+    .logo-50 span { font-family: Arial,sans-serif; font-size: .40rem; margin-bottom: 6px; letter-spacing: .04em; }
+    .vtc-symbol { width: 39px; height: 43px; display: grid; place-items: center; background: var(--red); color: #fff; box-shadow: 0 2px 5px rgba(130,0,0,.18); }
+    .vtc-symbol svg { width: 29px; height: 32px; fill: currentColor; }
+    .brand-text { line-height: 1.1; }
+    .brand-text strong { display: block; color: var(--navy); font-size: 1rem; font-weight: 900; }
+    .brand-text em { display: block; color: var(--red); font-size: .44rem; font-family: Arial,sans-serif; letter-spacing: .08em; font-style: normal; font-weight: 700; margin-top: 3px; }
+    .brand-text small { display: block; color: var(--muted); font-size: .58rem; margin-top: 4px; font-weight: 700; }
+    nav { display: flex; align-items: center; gap: 2px; }
+    nav a { padding: 8px 9px; border-radius: 7px; color: #354158; font-weight: 800; font-size: .72rem; white-space: nowrap; }
+    nav a:hover { background: #f1f4f8; color: var(--red); }
+    nav .nav-cta { background: var(--red); color: #fff; padding-inline: 13px; }
+    nav .nav-cta:hover { color: #fff; background: var(--red-dark); }
+
+    /* Hero */
+    .hero { position: relative; min-height: 510px; background: var(--navy-deep); color: #fff; overflow: hidden; }
+    .hero-photo { position: absolute; inset: 0; background: url("images/institute-gate.jpg") center/cover no-repeat; }
+    .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,21,57,.92) 2%,rgba(4,21,57,.70) 48%,rgba(4,21,57,.22) 100%); }
+    .hero-pattern { position: absolute; inset: 0; opacity: .15; background-image: radial-gradient(#e8b64e 1px, transparent 1px); background-size: 22px 22px; }
+    .hero .container { position: relative; z-index: 1; min-height: 510px; display: flex; align-items: center; }
+    .hero-content { max-width: 670px; padding: 64px 0 102px; }
+    .official-badge { display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px; border: 1px solid rgba(243,205,111,.55); background: rgba(7,27,65,.65); border-radius: 100px; color: #ffe0a1; font-size: .72rem; font-weight: 800; }
+    .official-badge i { width: 7px; height: 7px; border-radius: 50%; background: #e9b64a; box-shadow: 0 0 0 4px rgba(233,182,74,.2); }
+    h1 { margin: 16px 0 4px; font-size: clamp(2.6rem, 6vw, 5rem); line-height: .98; font-weight: 900; letter-spacing: -.05em; color: #fff; }
+    .hero h1 span { display: block; margin-top: 9px; color: #f4c84d; font-size: .51em; letter-spacing: -.02em; }
+    .hero p { max-width: 610px; margin: 16px 0 22px; color: #e4eaf6; font-size: 1rem; font-weight: 500; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 16px; border-radius: 9px; border: 1px solid transparent; font-size: .82rem; font-weight: 900; transition: .2s ease; cursor: pointer; }
+    .btn-primary { background: var(--red); color: #fff; box-shadow: 0 8px 18px rgba(62,0,0,.32); }
+    .btn-primary:hover { background: #dd1a21; transform: translateY(-1px); }
+    .btn-gold { background: #f0bf41; color: #172033; }
+    .btn-gold:hover { background: #ffd969; }
+    .btn-outline { color: #fff; border-color: rgba(255,255,255,.55); background: rgba(255,255,255,.07); }
+    .btn-outline:hover { background: rgba(255,255,255,.18); }
+    .hero-sign { position: absolute; bottom: 19px; left: max(16px, calc((100% - 1160px) / 2)); max-width: 232px; background: rgba(255,255,255,.96); color: var(--ink); padding: 11px 13px; border-radius: 10px; border-right: 4px solid var(--red); box-shadow: 0 10px 24px rgba(0,0,0,.23); }
+    .hero-sign strong { color: var(--navy); display: block; font-size: .75rem; }
+    .hero-sign span { color: var(--muted); display: block; font-size: .64rem; line-height: 1.4; }
+
+    /* Welcome note */
+    .welcome { position: relative; z-index: 3; margin: -41px auto 0; width: min(1075px, calc(100% - 32px)); background: #fff; border: 1px solid #e7e2d2; border-radius: 15px; padding: 14px 16px; box-shadow: 0 10px 32px rgba(8,29,67,.14); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 13px; }
+    .welcome-icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(135deg,var(--red),var(--red-dark)); color: #ffd76a; font-size: 1.3rem; }
+    .welcome h2 { margin: 0; color: var(--navy); font-size: 1rem; font-weight: 900; }
+    .welcome p { margin: 1px 0 0; color: var(--muted); font-size: .76rem; }
+    .welcome-tags { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; }
+    .tag { padding: 4px 8px; border-radius: 20px; font-size: .61rem; font-weight: 800; white-space: nowrap; }
+    .tag-blue { color: var(--navy); background: #e8f0fd; }
+    .tag-green { color: #0e7136; background: #e5f7eb; }
+    .tag-gold { color: #93600b; background: #fff4d8; }
+
+    main { padding: 55px 0 0; }
+    section { padding: 44px 0; }
+    .section-top { text-align: center; max-width: 720px; margin: 0 auto 26px; }
+    .eyebrow { display: inline-block; padding: 4px 10px; border-radius: 18px; color: var(--red); background: #fff0f0; border: 1px solid #f2cfd1; font-size: .64rem; font-weight: 900; }
+    h2 { margin: 8px 0 3px; color: var(--navy-deep); font-size: clamp(1.55rem, 3vw, 2.1rem); font-weight: 900; line-height: 1.25; }
+    .section-top p { margin: 0; color: var(--muted); font-size: .82rem; }
+    .audience-legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 12px; }
+    .audience-legend .audience { font-size: .6rem; }
+
+    /* Tracks */
+    .tracks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .track { position: relative; overflow: hidden; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; box-shadow: 0 4px 14px rgba(23,42,70,.04); }
+    .track::before { content: ""; position: absolute; top: 0; right: 0; left: 0; height: 4px; background: var(--accent,#e6ad20); }
+    .track.solar { --accent: #e4a20d; } .track.mechanics { --accent: #e16a13; } .track.electric { --accent: #188045; } .track.cool { --accent: #154f9e; } .track.paint { --accent: #d8171e; } .track.data { --accent: #c53680; border-color: #edbad7; }
+    .track-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .track-icon { width: 45px; height: 45px; border: 2px solid var(--accent); color: var(--accent); border-radius: 50%; display: grid; place-items: center; font-size: 1.35rem; font-weight: 900; }
+    .track .availability { font-size: .58rem; font-weight: 900; color: #597084; padding: 4px 7px; background: #f4f7fb; border-radius: 20px; }
+    .track .female { color: #a91f67; background: #fff0f7; border: 1px solid #f0bfd8; }
+    .track-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; padding-top: 9px; border-top: 1px dashed #e2e8f1; }
+    .meta-label { color: #7a8699; font-size: .56rem; font-weight: 800; }
+    .audience { display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 20px; font-size: .57rem; font-weight: 900; }
+    .audience-male { color: #0d4f9e; background: #eaf1fe; border: 1px solid #b8cdf1; }
+    .audience-both { color: #6a4c09; background: #fff6dd; border: 1px solid #eed79a; }
+    .audience-female { color: #a91f67; background: #fff0f7; border: 1px solid #f0bfd8; }
+    .track .male-symbol { font-size: .72rem; font-weight: 900; }
+    .track-duration { color: #597084; font-size: .58rem; font-weight: 800; }
+    .track-pick-hint { display: block; margin-top: 8px; color: #8894a7; font-size: .56rem; font-weight: 800; }
+    .track h3 { margin: 9px 0 1px; color: var(--accent); font-size: 1.05rem; font-weight: 900; }
+    .track > p { min-height: 42px; margin: 0; color: #566277; font-size: .7rem; }
+    details { margin-top: 10px; border-top: 1px dashed #d8e0eb; padding-top: 8px; }
+    summary { color: var(--navy); font-size: .68rem; font-weight: 900; cursor: pointer; }
+    details ul { padding: 0 15px 0 0; margin: 6px 0 0; color: #596579; font-size: .66rem; }
+    details li { margin: 3px 0; }
+
+    /* Benefits and requirements */
+    .accent-area { background: linear-gradient(180deg,#f7f9fd,#edf2f9); border-block: 1px solid #e2e9f3; }
+    .split { display: grid; grid-template-columns: 1.35fr .8fr; gap: 18px; align-items: stretch; }
+    .benefit-panel, .condition-panel { background: #fff; border: 1px solid var(--line); border-radius: 15px; padding: 20px; }
+    .panel-title { display: flex; align-items: center; gap: 9px; padding-bottom: 11px; border-bottom: 1px solid #e7edf5; color: var(--navy); font-weight: 900; font-size: 1rem; }
+    .title-mark { width: 30px; height: 30px; border-radius: 8px; background: #fff1f2; color: var(--red); display: grid; place-items: center; }
+    .benefit-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+    .benefit { display: flex; gap: 8px; padding: 9px; border-radius: 9px; background: #f8fafc; }
+    .benefit b { display: block; color: #26344c; font-size: .72rem; }
+    .benefit span { display: block; color: var(--muted); font-size: .62rem; line-height: 1.45; }
+    .check { width: 19px; height: 19px; flex: 0 0 19px; margin-top: 2px; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; font-size: .65rem; font-weight: 900; }
+    .condition-panel { color: #fff; background: linear-gradient(155deg,var(--red),#85070d); border: 0; }
+    .condition-panel .panel-title { color: #fff; border-color: rgba(255,255,255,.2); }
+    .condition-panel .title-mark { background: rgba(255,255,255,.14); color: #ffd46a; }
+    .condition { display: flex; align-items: center; gap: 9px; margin-top: 11px; padding: 10px; border-radius: 9px; background: rgba(255,255,255,.1); font-size: .71rem; font-weight: 700; }
+    .number { width: 23px; height: 23px; flex: 0 0 23px; display: grid; place-items: center; border-radius: 50%; background: #f4c94e; color: #591015; font-weight: 900; }
+    .condition-note { margin: 13px 0 0; color: #ffdbdc; font-size: .63rem; }
+
+    /* Documents */
+    .documents-box { background: #fff; border: 1px solid var(--line); border-radius: 15px; overflow: hidden; }
+    .doc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--navy); padding: 13px 18px; color: #fff; }
+    .doc-head h3 { margin: 0; font-size: .96rem; font-weight: 900; }
+    .doc-head p { margin: 0; color: #dae7fb; font-size: .62rem; }
+    .doc-columns { display: grid; grid-template-columns: 1fr 1fr; }
+    .doc-column { padding: 16px 18px; }
+    .doc-column + .doc-column { border-right: 1px solid var(--line); }
+    .doc-column h4 { margin: 0 0 9px; color: var(--green); font-size: .8rem; }
+    .doc-column h4.non-jordan { color: var(--red); }
+    .doc-column ol { margin: 0; padding: 0; list-style: none; counter-reset: docs; }
+    .doc-column li { position: relative; min-height: 27px; padding: 4px 30px 4px 0; color: #4b5970; border-bottom: 1px dashed #e3e8ef; font-size: .68rem; }
+    .doc-column li::before { counter-increment: docs; content: counter(docs); position: absolute; right: 0; top: 4px; width: 19px; height: 19px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: var(--green); font-size: .58rem; font-weight: 900; }
+    .doc-column.non-jordan li::before { background: var(--red); }
+    .doc-note { padding: 9px 18px; background: #fff8e7; border-top: 1px solid #f2dfaa; color: #83600d; font-size: .66rem; font-weight: 800; text-align: center; }
+
+    /* Form */
+    .registration { background: var(--navy-deep); position: relative; overflow: hidden; }
+    .registration::before { content: ""; position: absolute; width: 430px; height: 430px; left: -180px; top: -230px; border: 70px solid rgba(222,20,28,.17); border-radius: 50%; }
+    .registration .container { position: relative; }
+    .registration .section-top h2 { color: #fff; }
+    .registration .section-top p { color: #cad8ee; }
+    .registration .eyebrow { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.18); color: #ffe09a; }
+    .form-card { background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,.22); }
+    .form-intro { padding: 10px 12px; margin-bottom: 16px; border-radius: 9px; border-right: 4px solid var(--red); color: #48576e; background: #f5f8fc; font-size: .69rem; }
+    fieldset { margin: 0 0 15px; padding: 0; border: 0; }
+    legend { width: 100%; margin-bottom: 9px; padding-bottom: 6px; border-bottom: 1px solid #e8edf4; color: var(--navy); font-size: .83rem; font-weight: 900; }
+    .form-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 11px; }
+    .form-grid.three { grid-template-columns: repeat(3,1fr); }
+    .field.full { grid-column: 1 / -1; }
+    label { display: block; color: #3a4659; font-size: .67rem; font-weight: 800; }
+    label small { color: var(--red); }
+    input:not([type="radio"]):not([type="checkbox"]), select, textarea { width: 100%; margin-top: 4px; padding: 9px 10px; border: 1px solid #cfd8e5; border-radius: 7px; outline: 0; color: #26344c; background: #fff; font-size: .72rem; }
+    input:focus, select:focus, textarea:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(189,17,24,.09); }
+    textarea { min-height: 68px; resize: vertical; }
+    .gender-switch { display: flex; gap: 7px; margin-bottom: 11px; }
+    .gender-switch input { position: absolute; opacity: 0; pointer-events: none; }
+    .gender-switch label { flex: 1; text-align: center; padding: 8px; border: 1px solid #ced8e5; border-radius: 8px; color: #59677c; cursor: pointer; }
+    #static-male:checked + label { color: var(--navy); background: #eaf1fe; border-color: #75a3ef; }
+    #static-female:checked + label { color: #a61862; background: #fff0f7; border-color: #e88dbb; }
+    .static-form { position: relative; }
+    .track-picks { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+    .track-picks input { position: absolute; opacity: 0; pointer-events: none; }
+    .track-picks label { position: relative; min-height: 64px; padding: 9px; border: 1px solid #d4dde9; border-radius: 8px; cursor: pointer; transition: .15s; }
+    .track-picks label:hover { border-color: #8ca5c9; background: #f9fbfe; }
+    .track-picks b { display: block; color: var(--navy); font-size: .69rem; }
+    .track-picks span { display: block; color: #65738a; font-size: .58rem; line-height: 1.35; }
+    .track-picks .women-only { border-color: #efbfd7; background: #fff8fc; }
+    .track-picks .women-only b { color: #b51e6b; }
+    .track-picks .women-only::after { content: "للإناث فقط"; position: absolute; left: 6px; top: 6px; color: #fff; background: var(--pink); border-radius: 12px; padding: 2px 5px; font-size: .48rem; font-weight: 900; }
+    #choose-solar:checked + label, #choose-mech:checked + label, #choose-electric:checked + label, #choose-cool:checked + label, #choose-paint:checked + label { border: 2px solid var(--red); background: #fff3f3; }
+    #choose-data:checked + label { border: 2px solid var(--pink); background: #fff0f7; }
+    .female-track-note { display: none; margin: 9px 0 0; padding: 7px 10px; background: #fff1f8; border: 1px solid #f1bbd8; border-radius: 7px; color: #9e1f5f; font-size: .64rem; font-weight: 800; }
+    /* تفاعل CSS فقط: مدخل البيانات لا يظهر للمتدرب الذكر ويظهر للمتدربة فقط */
+    .form-card:has(#static-male:checked) .women-only { display: none; }
+    .form-card:has(#static-male:checked) .female-track-note { display: none; }
+    .form-card:has(#static-female:checked) .female-track-note { display: block; }
+    .check-row { display: flex; align-items: flex-start; gap: 7px; padding: 10px; margin-top: 13px; background: #f4f7fb; border-radius: 8px; }
+    .check-row input { margin-top: 3px; accent-color: var(--red); }
+    .check-row label { color: #536076; font-size: .62rem; line-height: 1.55; }
+    .submit-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 14px; padding-top: 14px; border-top: 1px solid #e8edf4; }
+    .submit-row p { margin: 0; color: #7a8699; font-size: .59rem; }
+    .static-notice { margin-top: 11px; padding: 9px 11px; color: #845f09; background: #fff6dc; border: 1px solid #f0db9f; border-radius: 8px; font-size: .62rem; }
+
+    /* Tracking */
+    .tracking { background: #fff; }
+    .tracking-box { max-width: 760px; margin: 0 auto; padding: 20px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; }
+    .searchline { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+    .sample-codes { margin: 8px 0 0; color: var(--muted); font-size: .6rem; text-align: center; }
+    .sample-codes code { direction: ltr; display: inline-block; padding: 2px 5px; color: var(--navy); background: #e8effa; border-radius: 4px; }
+    .tracking-note { display: flex; align-items: center; gap: 9px; margin: 16px auto 0; max-width: 760px; padding: 11px; border-radius: 9px; background: #eef7ff; border: 1px solid #cee1f7; color: #335370; font-size: .67rem; }
+
+    /* Contact */
+    .contact { background: #f1f4f9; border-top: 1px solid #e0e6ee; }
+    .contact-layout { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; }
+    .contact-card { color: #fff; background: linear-gradient(145deg,var(--red),var(--red-dark)); border-radius: 15px; padding: 22px; }
+    .contact-card h2 { color: #fff; margin-top: 0; font-size: 1.45rem; }
+    .contact-card p { color: #ffe9e9; font-size: .75rem; }
+    .contacts { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 15px; }
+    .contacts a, .contacts div { padding: 10px; border: 1px solid rgba(255,255,255,.23); background: rgba(255,255,255,.1); border-radius: 8px; font-size: .65rem; }
+    .contacts b { display: block; color: #ffd66d; direction: ltr; font-family: Arial,sans-serif; font-size: .83rem; margin-top: 2px; }
+    .faq-card { background: #fff; border: 1px solid var(--line); border-radius: 15px; padding: 18px; }
+    .faq-card h3 { margin: 0 0 8px; color: var(--navy); font-size: 1rem; }
+    .faq-card details { margin: 0; padding: 0; border-top: 1px solid #e5eaf2; }
+    .faq-card summary { padding: 10px 0; color: #2d3c54; font-size: .7rem; }
+    .faq-card p { margin: 0 0 10px; color: var(--muted); font-size: .65rem; }
+
+    footer { padding: 20px 0; color: #c7d1e0; background: var(--navy-deep); font-size: .63rem; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .footer-brand { display: flex; align-items: center; gap: 8px; color: #fff; font-weight: 800; }
+    .footer-brand .mini-symbol { width: 22px; height: 25px; background: var(--red); display: grid; place-items: center; }
+    .footer-brand svg { width: 15px; fill: #fff; }
+    .to-top { color: #f1c95b; font-weight: 900; }
+
+    @media (max-width: 940px) {
+      nav { display: none; }
+      .tracks { grid-template-columns: repeat(2, 1fr); }
+      .split, .contact-layout { grid-template-columns: 1fr; }
+      .welcome { grid-template-columns: auto 1fr; }
+      .welcome-tags { grid-column: 1 / -1; justify-content: flex-start; }
+    }
+    @media (max-width: 610px) {
+      .official-strip .container { justify-content: center; padding-block: 5px; }
+      .official-copy { justify-content: center; }
+      .quick-contact { display: none; }
+      .brand { min-width: 0; }
+      .brand-text small { display: none; }
+      .logo-50 { display: none; }
+      .header-main { min-height: 58px; }
+      .hero, .hero .container { min-height: 480px; }
+      .hero-content { padding-top: 52px; padding-bottom: 100px; }
+      .hero-sign { right: 16px; left: 16px; max-width: none; bottom: 13px; }
+      h1 { font-size: 3.1rem; }
+      .welcome { margin-top: -23px; }
+      .welcome h2 { font-size: .87rem; }
+      .welcome p { font-size: .66rem; }
+      .tracks, .benefit-list, .doc-columns, .form-grid, .form-grid.three, .track-picks, .contacts { grid-template-columns: 1fr; }
+      .doc-column + .doc-column { border-top: 1px solid var(--line); border-right: 0; }
+      .form-card { padding: 14px; }
+      .searchline { grid-template-columns: 1fr; }
+      .submit-row .btn { width: 100%; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media print {
+      header, .hero, .welcome, .tracks, .accent-area, .tracking, .contact, footer, .section-top, .static-notice, .submit-row { display: none !important; }
+      body { background: #fff; }
+      .registration { padding: 0; background: #fff; }
+      .registration .section-top { display: block !important; }
+      .registration .section-top h2 { color: #000; }
+      .registration .section-top p { color: #333; }
+      .form-card { box-shadow: none; border: 1px solid #222; }
+    }
+  </style>
+</head>
+<body>
+  <div class="official-strip">
+    <div class="container">
+      <div class="official-copy">
+        <i class="dot"></i>
+        <strong>المملكة الأردنية الهاشمية</strong>
+        <span>│</span>
+        <span>مديرية تدريب مهني / إقليم الوسط</span>
+        <span>│</span>
+        <span style="color:#f6c84e;font-weight:800">معهد تدريب مهني الغور الأوسط</span>
+      </div>
+      <div class="quick-contact">
+        <a href="tel:053584316">☎ <span>05 / 35 843 16</span></a>
+        <a class="whatsapp" href="https://wa.me/962799769904" target="_blank" rel="noopener">◉ <span>0799769904</span></a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container header-main">
+      <a href="#home" class="brand" aria-label="العودة للرئيسية">
+        <span class="logo-50"><b>50</b><span>YEARS</span></span>
+        <span class="vtc-symbol" aria-hidden="true">
+          <svg viewBox="0 0 100 120"><circle cx="50" cy="20" r="13"/><path d="M50 35C36 35 25 44 22 58c-2 12 0 28 8 34h10l2-22c0-6 5-10 8-10s8 4 8 10l2 22h10c8-6 10-22 8-34-3-14-14-23-28-23z"/><rect x="22" y="100" width="56" height="3" fill="white"/></svg>
+        </span>
+        <span class="brand-text">
+          <strong>مؤسَّسَة التَّدْرِيب المِهْنِيّ</strong>
+          <em>VOCATIONAL TRAINING CORPORATION</em>
+          <small>معهد تدريب مهني الغور الأوسط</small>
+        </span>
+      </a>
+      <nav aria-label="التنقل الرئيسي">
+        <a href="#home">الرئيسية</a>
+        <a href="#specializations">التخصصات</a>
+        <a href="#benefits">المزايا والشروط</a>
+        <a href="#documents">الوثائق</a>
+        <a href="#tracking">الاستعلام</a>
+        <a class="nav-cta" href="#register">سجّل الآن</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-pattern" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="official-badge"><i></i> بوابة القبول والتسجيل الرسمية · العام التدريبي 2025 / 2026</span>
+        <h1 id="hero-title">سجّل الآن!<span>وابدأ مستقبلك المهني بثقة</span></h1>
+        <p>تدرّب على أيدي مدربين مؤهلين واكتسب مهارات تقنية وفنية مطلوبة في سوق العمل، ضمن بيئة تدريبية حديثة ومجهزة في معهد تدريب مهني الغور الأوسط.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#register">▣ تقديم طلب التسجيل</a>
+          <a class="btn btn-gold" href="#specializations">استكشف التخصصات الستة</a>
+          <a class="btn btn-outline" href="#tracking">⌕ استعلام عن طلب</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-sign"><strong>بوابة معهد الغور الأوسط</strong><span>الأردن · إقليم الوسط · محافظة البلقاء / لواء دير علا</span></div>
+  </section>
+
+  <aside class="welcome" aria-label="رسالة ترحيبية">
+    <div class="welcome-icon">✦</div>
+    <div>
+      <h2>أهلاً وسهلاً بكم في بوابة معهد الغور الأوسط</h2>
+      <p>خطوتك الأولى نحو مهارة معتمدة وفرصة عمل تبدأ هنا — اختر تخصصك وسجّل طلبك بثقة.</p>
+    </div>
+    <div class="welcome-tags">
+      <span class="tag tag-gold">6 برامج مهنية</span>
+      <span class="tag tag-green">بدل مواصلات شهري</span>
+      <span class="tag tag-blue">شهادات معتمدة</span>
+    </div>
+  </aside>
+
+  <main>
+    <section id="specializations">
+      <div class="container">
+        <div class="section-top">
+          <span class="eyebrow">البرامج المهنية المعتمدة</span>
+          <h2>التخصصات المتاحة في معهد الغور الأوسط</h2>
+          <p>ستة برامج صُممت لتواكب احتياجات سوق العمل المحلي، مع تدريب عملي داخل مشاغل ومختبرات مجهزة. وكل تخصص محدد بوضوح بفئته المستهدفة.</p>
+          <div class="audience-legend">
+            <span class="audience audience-male"><span class="male-symbol">♂</span> للذكور</span>
+            <span class="audience audience-female">♀ للإناث فقط</span>
+            <span class="audience audience-both">♂ ♀ ذكور وإناث</span>
+          </div>
+        </div>
+
+        <div class="tracks">
+          <article class="track solar">
+            <div class="track-top"><span class="track-icon">☀</span><span class="availability">تخصص مطلوب</span></div>
+            <h3>الطاقة الشمسية</h3><p>تركيب وصيانة أنظمة الطاقة الشمسية ومضخات الري الزراعية.</p>
+            <div class="track-meta">
+              <span class="meta-label">الفئة المستهدفة:</span>
+              <span class="audience audience-both">♂ ♀ ذكور وإناث</span>
+              <span class="track-duration">تدريب تطبيقي في المشاغل</span>
+            </div>
+            <details><summary>عرض المهارات وفرص العمل</summary><ul><li>تركيب الألواح ومحولات التيار.</li><li>فحص الأنظمة الكهروضوئية وحساب الأحمال.</li><li>فرص في شركات الطاقة والمزارع.</li></ul></details>
+          </article>
+
+          <article class="track mechanics">
+            <div class="track-top"><span class="track-icon">⚙</span><span class="availability">تخصص مطلوب</span></div>
+            <h3>ميكانيك مركبات</h3><p>صيانة وإصلاح أنظمة المحركات ونقل الحركة والمكابح.</p>
+            <div class="track-meta">
+              <span class="meta-label">الفئة المستهدفة:</span>
+              <span class="audience audience-male"><span class="male-symbol">♂</span> للذكور</span>
+              <span class="track-duration">مشاغل ميكانيك مجهزة</span>
+            </div>
+            <details><summary>عرض المهارات وفرص العمل</summary><ul><li>صيانة محركات البنزين والديزل.</li><li>تشخيص المكابح والتعليق والجير.</li><li>فرص في الوكالات والكراجات والآليات.</li></ul></details>
+          </article>
+
+          <article class="track electric">
+            <div class="track-top"><span class="track-icon">ϟ</span><span class="availability">تخصص مطلوب</span></div>
+            <h3>كهرباء مركبات</h3><p>فحص وصيانة الأنظمة الكهربائية والإلكترونية للمركبات.</p>
+            <div class="track-meta">
+              <span class="meta-label">الفئة المستهدفة:</span>
+              <span class="audience audience-male"><span class="male-symbol">♂</span> للذكور</span>
+              <span class="track-duration">مختبرات فحص إلكتروني</span>
+            </div>
+            <details><summary>عرض المهارات وفرص العمل</summary><ul><li>فحص كمبيوتر السيارات والدوائر.</li><li>صيانة السلف والدينامو والبطاريات.</li><li>فرص في مراكز الفحص والكهرباء.</li></ul></details>
+          </article>
+
+          <article class="track cool">
+            <div class="track-top"><span class="track-icon">❄</span><span class="availability">تخصص مطلوب</span></div>
+            <h3>تكييف وتبريد</h3><p>تركيب وصيانة أجهزة التكييف وغرف التبريد والتخزين.</p>
+            <div class="track-meta">
+              <span class="meta-label">الفئة المستهدفة:</span>
+              <span class="audience audience-both">♂ ♀ ذكور وإناث</span>
+              <span class="track-duration">مشاغل تكييف وتبريد</span>
+            </div>
+            <details><summary>عرض المهارات وفرص العمل</summary><ul><li>تأسيس وحدات التكييف وشحن الفريون.</li><li>صيانة غرف التبريد الزراعية.</li><li>فرص في المزارع والمنشآت وشركات التكييف.</li></ul></details>
+          </article>
+
+          <article class="track paint">
+            <div class="track-top"><span class="track-icon">◉</span><span class="availability">تخصص مطلوب</span></div>
+            <h3>دهان مركبات</h3><p>دهان وإصلاح هياكل المركبات وتقنيات خلط الألوان.</p>
+            <div class="track-meta">
+              <span class="meta-label">الفئة المستهدفة:</span>
+              <span class="audience audience-male"><span class="male-symbol">♂</span> للذكور</span>
+              <span class="track-duration">غرفة رش وأفران تجفيف</span>
+            </div>
+            <details><summary>عرض المهارات وفرص العمل</summary><ul><li>تحضير السطح والمعجون والصنفرة.</li><li>الرش والتلميع ومطابقة الألوان.</li><li>فرص في ورش البودي والدهان والعناية.</li></ul></details>
+          </article>
+
+          <article class="track data">
+            <div class="track-top"><span class="track-icon">⌨</span><span class="availability female">للإناث فقط</span></div>
+            <h3>مدخل بيانات</h3><p>إدخال بيانات احترافي، جداول وتقارير وأرشفة رقمية للمستندات.</p>
+            <div class="track-meta">
+              <span class="meta-label">الفئة المستهدفة:</span>
+              <span class="audience audience-female">♀ للإناث فقط</span>
+              <span class="track-duration">مختبر حاسوب مؤهل</span>
+            </div>
+            <details><summary>عرض المهارات وفرص العمل</summary><ul><li>الطباعة العربية والإنجليزية بدقة.</li><li>استخدام Word وExcel وقواعد البيانات.</li><li>فرص في المؤسسات والبنوك والخدمات والعمل عن بُعد.</li></ul></details>
+          </article>
+        </div>        </div>
+      </div>
+    </section>
+
+    <section class="accent-area" id="benefits">
+      <div class="container split">
+        <div class="benefit-panel">
+          <div class="panel-title"><span class="title-mark">✓</span> مزايا التدريب في المعهد</div>
+          <div class="benefit-list">
+            <div class="benefit"><i class="check">✓</i><div><b>بدل مواصلات شهري</b><span>دعم مالي شهري لتغطية التنقل من وإلى المعهد.</span></div></div>
+            <div class="benefit"><i class="check">✓</i><div><b>ملابس مهنية ومعدات سلامة</b><span>توفير زي العمل ومهمات الوقاية للمتدرب.</span></div></div>
+            <div class="benefit"><i class="check">✓</i><div><b>شهادات رسمية معتمدة</b><span>مرتبطة بمستوى ومعترف بها لدى الجهات المختصة.</span></div></div>
+            <div class="benefit"><i class="check">✓</i><div><b>دعم صندوق المعونة الوطنية</b><span>إعفاء من الرسوم وبدل مواصلات للمشمولين وفقاً للتعليمات.</span></div></div>
+          </div>
+        </div>
+        <aside class="condition-panel">
+          <div class="panel-title"><span class="title-mark">!</span> شروط القبول</div>
+          <div class="condition"><span class="number">1</span>إنهاء الصف العاشر أو أي مؤهل علمي أعلى.</div>
+          <div class="condition"><span class="number">2</span>ألا يقل عمر المتدرب عن 16 عاماً.</div>
+          <div class="condition"><span class="number">3</span>أن يكون لائقاً للمهنة التي سيتم تدريبه عليها.</div>
+          <p class="condition-note">يخضع القبول النهائي لتدقيق الوثائق وإجراء المقابلة وموافقة المشرف المهني.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="documents">
+      <div class="container">
+        <div class="section-top">
+          <span class="eyebrow">دليل التسجيل</span>
+          <h2>الوثائق المطلوبة عند مراجعة المعهد</h2>
+          <p>احضر أصول الوثائق وصوراً مصدقة حسب الأصول عند الموعد المحدد لك.</p>
+        </div>
+        <div class="documents-box">
+          <div class="doc-head"><div><h3>قائمة الوثائق الرسمية</h3><p>يرجى تجهيز الملف كاملاً لضمان سرعة إجراءات القبول.</p></div><span>▣</span></div>
+          <div class="doc-columns">
+            <div class="doc-column">
+              <h4>الوثائق المطلوبة للأردنيين</h4>
+              <ol>
+                <li>صورة مصدقة عن هوية الأحوال المدنية.</li>
+                <li>صورة مصدقة عن شهادة الصف العاشر أو آخر مؤهل علمي.</li>
+                <li>ثلاث صور شخصية حديثة (4×6).</li>
+                <li>صورة مصدقة عن دفتر العائلة.</li>
+                <li>شهادة الميلاد الأصلية للمولودين خارج المملكة.</li>
+                <li>قبول المتدرب من حيث اللياقة وموافقة المشرف.</li>
+                <li>رقم الحساب البنكي (IBAN) إن وجد.</li>
+              </ol>
+            </div>
+            <div class="doc-column non-jordan">
+              <h4 class="non-jordan">الوثائق المطلوبة لغير الأردنيين</h4>
+              <ol>
+                <li>صورة عن جواز السفر ساري المفعول.</li>
+                <li>صورة عن الإقامة سارية المفعول.</li>
+                <li>شهادة الصف العاشر أو آخر مؤهل علمي مصدقة.</li>
+                <li>ثلاث صور شخصية حديثة (4×6).</li>
+                <li>صورة عن شهادة الميلاد الأصلية.</li>
+                <li>دفتر العائلة أو إثبات صلة القرابة.</li>
+                <li>قبول المتدرب من حيث اللياقة وموافقة المشرف.</li>
+                <li>إحضار كفيل داخل المملكة الأردنية الهاشمية.</li>
+                <li>رقم الحساب البنكي (IBAN) إن وجد.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="doc-note">ملاحظة: يجب أن تكون جميع الوثائق سارية المفعول ومصدقة حسب الأصول.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="registration" id="register">
+      <div class="container">
+        <div class="section-top">
+          <span class="eyebrow">بوابة التسجيل</span>
+          <h2>استمارة طلب الالتحاق والتدريب المهني</h2>
+          <p>نموذج HTML للطباعة أو للتجهيز قبل مراجعة قسم التسجيل في المعهد.</p>
+        </div>
+
+        <form class="form-card" action="#register" method="get">
+          <div class="form-intro">يرجى تعبئة البيانات بدقة. لتأكيد التسجيل الإلكتروني ومتابعة الطلب، تواصل مع المعهد على الرقم <b dir="ltr">05 / 35 843 16</b> أو عبر واتساب <b dir="ltr">0799769904</b>.</div>
+
+          <div class="gender-switch" aria-label="الفئة المستهدفة">
+            <input type="radio" name="static_gender" id="static-male" checked>
+            <label for="static-male">♂ متدرب — ذكر</label>
+            <input type="radio" name="static_gender" id="static-female">
+            <label for="static-female">♀ متدربة — أنثى</label>
+          </div>
+
+          <div class="static-form">
+            <fieldset>
+              <legend>البيانات الشخصية ومعلومات الاتصال</legend>
+              <div class="form-grid three">
+                <label class="field full">الاسم الرباعي <small>*</small><input required name="full_name" placeholder="مثال: أحمد محمد محمود الفاعوري"></label>
+                <label>الرقم الوطني / رقم الجواز <small>*</small><input required name="id_number" placeholder="2006123456"></label>
+                <label>تاريخ الميلاد <small>*</small><input required type="date" name="birth_date"></label>
+                <label>رقم الهاتف <small>*</small><input required type="tel" name="phone" placeholder="0791234567" dir="ltr"></label>
+                <label>المحافظة<select name="governorate"><option>البلقاء</option><option>العاصمة عمان</option><option>الزرقاء</option><option>إربد</option><option>محافظة أخرى</option></select></label>
+                <label>المنطقة / اللواء<select name="district"><option>الغور الأوسط - دير علا</option><option>الغور الأوسط - الشونة الجنوبية</option><option>الغور الأوسط - الكرامة</option><option>الغور الأوسط - معدي</option><option>منطقة أخرى</option></select></label>
+                <label>آخر مؤهل علمي <small>*</small><select name="education"><option>إنهاء الصف العاشر الأساسي</option><option>أول ثانوي</option><option>الثانوية العامة</option><option>مؤهل أعلى</option></select></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>اختر التخصص المرغوب <small style="color:#bd1118">*</small></legend>
+              <div class="track-picks">
+                <input required type="radio" name="specialization" value="الطاقة الشمسية" id="choose-solar"><label for="choose-solar"><b>☀ الطاقة الشمسية</b><span>♂ ♀ ذكور وإناث</span></label>
+                <input type="radio" name="specialization" value="ميكانيك مركبات" id="choose-mech"><label for="choose-mech"><b>⚙ ميكانيك مركبات</b><span>♂ للذكور</span></label>
+                <input type="radio" name="specialization" value="كهرباء مركبات" id="choose-electric"><label for="choose-electric"><b>ϟ كهرباء مركبات</b><span>♂ للذكور</span></label>
+                <input type="radio" name="specialization" value="تكييف وتبريد" id="choose-cool"><label for="choose-cool"><b>❄ تكييف وتبريد</b><span>♂ ♀ ذكور وإناث</span></label>
+                <input type="radio" name="specialization" value="دهان مركبات" id="choose-paint"><label for="choose-paint"><b>◉ دهان مركبات</b><span>♂ للذكور</span></label>
+                <input type="radio" name="specialization" value="مدخل بيانات" id="choose-data"><label class="women-only" for="choose-data"><b>⌨ مدخل بيانات</b><span>♀ للإناث فقط</span></label>
+              </div>
+              <p class="female-track-note">✓ دورة «مدخل بيانات» للإناث فقط ولا تظهر للمتدرب الذكر. تخصصات المركبات (ميكانيك، كهرباء، دهان) مخصصة للذكور.</p>
+            </fieldset>
+
+            <fieldset>
+              <legend>تعهد وبيانات إضافية</legend>
+              <div class="form-grid">
+                <label>رقم الحساب البنكي IBAN <input name="iban" placeholder="لاستلام بدل المواصلات — إن وجد" dir="ltr"></label>
+                <label>هاتف ولي الأمر / للطوارئ <input name="emergency_phone" placeholder="0781234567" dir="ltr"></label>
+                <label class="field full">الدافع المهني (اختياري)<textarea name="motivation" placeholder="لماذا اخترت هذا التخصص؟"></textarea></label>
+              </div>
+              <div class="check-row"><input type="checkbox" required id="pledge"><label for="pledge">أتعهد بأن البيانات أعلاه صحيحة، وألتزم بأنظمة مؤسسة التدريب المهني، وبإحضار الوثائق الأصلية والمصدقة عند المراجعة.</label></div>
+            </fieldset>
+
+            <div class="submit-row">
+              <p>الحقول التي تحمل علامة <b style="color:#bd1118">*</b> مطلوبة. النموذج قابل للطباعة.</p>
+              <button class="btn btn-primary" type="submit">تأكيد وتجهيز الطلب للطباعة</button>
+            </div>
+            <div class="static-notice"><b>تنبيه مهم عن الفئات المستهدفة:</b> تخصص «مدخل بيانات» للإناث فقط، وتخصصات ميكانيك وكهرباء ودهان المركبات للذكور، أما الطاقة الشمسية وتكييف وتبريد فمتاحان للذكور والإناث.</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="tracking" id="tracking">
+      <div class="container">
+        <div class="section-top">
+          <span class="eyebrow">خدمة الاستعلام</span>
+          <h2>متابعة حالة طلب القبول</h2>
+          <p>احفظ رقم طلبك بعد التسجيل واستخدمه عند التواصل مع قسم القبول والتسجيل.</p>
+        </div>
+        <div class="tracking-box">
+          <div class="searchline">
+            <input type="search" aria-label="رقم الطلب أو الرقم الوطني" placeholder="أدخل رقم الطلب أو الرقم الوطني / رقم الجواز">
+            <a class="btn btn-primary" href="tel:053584316">استعلم عبر المعهد ☎</a>
+          </div>
+          <p class="sample-codes">عند الاتصال جهّز رقمك الوطني أو رقم الطلب — مثال: <code>VTC-GHR-2025-1082</code></p>
+        </div>
+        <div class="tracking-note"><strong>ⓘ</strong><span>للحفاظ على خصوصية بيانات الطلبة، يتم تزويد حالة الطلب وتفاصيل المقابلة من خلال قسم التسجيل أو الواتساب الرسمي للمعهد فقط.</span></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-card">
+          <h2>لا تفوّت الفرصة!</h2>
+          <p>سجّل اليوم في معهد تدريب مهني الغور الأوسط واكتسب مهارة عملية معتمدة تساعدك على دخول سوق العمل بثقة.</p>
+          <div class="contacts">
+            <a href="tel:053584316">الهاتف الأرضي<b>05 / 35 843 16</b></a>
+            <a href="https://wa.me/962799769904" target="_blank" rel="noopener">الموبايل والواتساب<b>0799769904</b></a>
+            <div>الموقع<b style="direction:rtl;font-family:inherit;font-size:.67rem">الغور الأوسط / دير علا</b></div>
+            <div>الدوام<b style="direction:rtl;font-family:inherit;font-size:.67rem">الأحد - الخميس، 8 ص - 3 م</b></div>
+          </div>
+        </div>
+        <div class="faq-card">
+          <h3>الأسئلة الأكثر شيوعاً</h3>
+          <details open><summary>هل يحصل المتدرب على بدل مواصلات؟</summary><p>نعم، يمنح المتدربون بدلاً شهرياً للمواصلات وفق الأنظمة والتعليمات المعتمدة، ويفضل تزويد المعهد برقم الحساب البنكي IBAN.</p></details>
+          <details><summary>ما امتيازات مستحقي صندوق المعونة الوطنية؟</summary><p>تُسدد عن المستحقين أجور التدريب وبدل الخدمات وفق القوائم المعتمدة، إضافة إلى بدل المواصلات حسب التعليمات.</p></details>
+          <details><summary>هل شهادات التدريب معتمدة؟</summary><p>نعم، برامج مؤسسة التدريب المهني رسمية، ويحصل الخريج على شهادة مرتبطة بمستوى ويمكنه التقدم لمزاولة المهنة حسب الأنظمة.</p></details>
+          <details><summary>هل دورة مدخل البيانات متاحة للذكور؟</summary><p><b style="color:#bd1118">لا.</b> دورة مدخل بيانات مخصصة للإناث فقط، ولا يُقبل أي متدرب ذكر في هذا التخصص.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand"><span class="mini-symbol"><svg viewBox="0 0 100 120"><circle cx="50" cy="20" r="13"/><path d="M50 35C36 35 25 44 22 58c-2 12 0 28 8 34h10l2-22c0-6 5-10 8-10s8 4 8 10l2 22h10c8-6 10-22 8-34-3-14-14-23-28-23z"/></svg></span> مؤسسة التدريب المهني — معهد تدريب مهني الغور الأوسط</div>
+      <span>جميع الحقوق محفوظة © 2026</span>
+      <a class="to-top" href="#home">↑ العودة للأعلى</a>
+    </div>
+  </footer>
+</body>
+</html>
